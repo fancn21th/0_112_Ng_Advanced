@@ -5,7 +5,7 @@ import { ToggleButtonComponent } from "./toggle.button/toggle.button.component";
 import { ToggleDirective } from "./toggle.directive";
 import { ToggleOnComponent } from "./toggle.on/toggle.on.component";
 import { ToggleOffComponent } from "./toggle.off/toggle.off.component";
-import { ToggleProviderDirective } from "./toggle-provider.directive";
+import { ToggleProviderDirective } from "./toggleProvider.directive";
 
 @NgModule({
   declarations: [

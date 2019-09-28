@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { ToggleProviderDirective } from "../toggle-provider.directive";
+import { ToggleProviderDirective } from "../toggleProvider.directive";
 
 @Component({
   selector: "toggle-on",
