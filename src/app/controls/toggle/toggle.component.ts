@@ -1,20 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "toggle",
-  templateUrl: "./toggle.component.html",
-  styleUrls: ["./toggle.component.css"]
+  template: "<ng-content></ng-content>"
 })
-export class ToggleComponent implements OnInit {
-  @Input() on: boolean = false;
+export class ToggleComponent {
+  @Input() on;
   @Output() toggled: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() {}
-
-  onClick() {
-    this.on = !this.on;
+  setOnState(on: boolean) {
+    this.on = on;
     this.toggled.emit(this.on);
   }
-
-  ngOnInit() {}
 }
