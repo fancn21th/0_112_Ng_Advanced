@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ToggleComponent } from "./toggle/toggle.component";
+import { ToggleModule } from './toggle/toggle.module';
 
 @NgModule({
-  declarations: [ToggleComponent],
+  declarations: [],
   imports: [CommonModule],
-  exports: [ToggleComponent]
+  exports: [ToggleModule]
 })
 export class ControlsModule {}
