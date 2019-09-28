@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { ToggleComponent } from "../toggle.component";
+import { ToggleDirective } from "../toggle.directive";
 
 @Component({
   selector: "toggle-off",
   template: "<ng-content *ngIf='!toggle.on'></ng-content>"
 })
 export class ToggleOffComponent {
-  constructor(public toggle: ToggleComponent) {}
+  constructor(public toggle: ToggleDirective) {}
 }
