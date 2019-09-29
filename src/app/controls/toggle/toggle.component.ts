@@ -7,6 +7,15 @@ import {
   ContentChild
 } from "@angular/core";
 
+export interface ToggleState {
+  on: boolean;
+}
+
+export type ToggleStateReducer = (
+  state: ToggleState,
+  changes: Partial<ToggleState>
+) => ToggleState;
+
 @Component({
   selector: "toggle",
   template: `
@@ -31,9 +40,20 @@ export class ToggleComponent {
   @Input()
   layoutTemplate: TemplateRef<any>;
 
+  @Input() stateReducer: ToggleStateReducer = (state, changes) => ({
+    ...state,
+    ...changes
+  });
+
   setOnState(on: boolean) {
-    this.on = on;
-    this.toggled.emit(this.on);
+    const oldState = { on: this.on };
+    const newState = this.stateReducer(oldState, {
+      on
+    });
+    if (oldState !== newState) {
+      this.on = on;
+      this.toggled.emit(this.on);
+    }
   }
 
   toggle = e => {

@@ -1,4 +1,4 @@
-<toggle (toggled)="showMessage($event)">
+<toggle (toggled)="showMessage($event)" [stateReducer]="stateReducer">
   <ng-template let-on="on" let-toggle="toggle">
     <div>{{ on ? "ON" : "OFF" }}</div>
     <switch [on]="on" (click)="toggle($event)" toggler></switch>
