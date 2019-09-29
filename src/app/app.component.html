@@ -1,9 +1,26 @@
-<div toggle (toggled)="showMessage($event)">
+<div toggle #firstToggle="toggle" (toggled)="showMessage($event)">
+  <toggle-on>
+    <h3>(On)/Off</h3>
+  </toggle-on>
+  <toggle-off>
+    <h3>On/(Off)</h3>
+  </toggle-off>
+  <toggle-button></toggle-button>
   <toggle-on>
     <h3>On</h3>
   </toggle-on>
   <toggle-off>
     <h3>Off</h3>
+  </toggle-off>
+  <foo></foo>
+</div>
+<hr />
+<div [toggleProvider]="firstToggle" (toggled)="showMessage($event)">
+  <toggle-on>
+    <h3>(On)/Off</h3>
+  </toggle-on>
+  <toggle-off>
+    <h3>On/(Off)</h3>
   </toggle-off>
   <toggle-button></toggle-button>
   <toggle-on>

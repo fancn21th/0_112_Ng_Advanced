@@ -1,10 +1,28 @@
-import { Directive, Host } from "@angular/core";
+import {
+  Directive,
+  Host,
+  OnChanges,
+  SimpleChanges,
+  Input,
+  Optional
+} from "@angular/core";
 import { ToggleDirective } from "./toggle.directive";
 
 @Directive({
-  selector: "toggle, [toggle]"
+  exportAs: 'toggleProvider',
+  selector: "toggle, [toggle], [toggleProvider]"
 })
-export class ToggleProviderDirective {
+export class ToggleProviderDirective implements OnChanges {
+  @Input() toggleProvider: ToggleDirective;
+
   toggle: ToggleDirective = this.toggleDirective;
-  constructor(@Host() private toggleDirective: ToggleDirective) {}
+
+  constructor(@Host() @Optional() private toggleDirective: ToggleDirective) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const { toggleProvider } = changes;
+    if (toggleProvider) {
+      this.toggle = this.toggleProvider || this.toggleDirective;
+    }
+  }
 }

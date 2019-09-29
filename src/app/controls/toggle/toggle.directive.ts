@@ -1,6 +1,7 @@
 import { Directive, Input, Output, EventEmitter } from "@angular/core";
 
 @Directive({
+  exportAs: "toggle",
   selector: "toggle, [toggle]"
 })
 export class ToggleDirective {
