@@ -1,6 +1,10 @@
 <toggle (toggled)="showMessage($event)">
   <ng-template let-on="on" let-toggle="toggle">
     <div>{{ on ? "ON" : "OFF" }}</div>
-    <switch [on]="on" (click)="toggle($event)"></switch>
+    <switch [on]="on" (click)="toggle($event)" toggler></switch>
+    <hr />
+    <button toggler [on]="on" (click)="toggle($event)">
+      {{ on ? "ON" : "OFF" }}
+    </button>
   </ng-template>
 </toggle>
