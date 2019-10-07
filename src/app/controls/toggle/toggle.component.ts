@@ -28,7 +28,7 @@ export class ToggleComponent {
   @Output() toggled: EventEmitter<boolean> = new EventEmitter();
 
   @ContentChild(TemplateRef, { static: false })
-  @Input()
+  // @Input()
   layoutTemplate: TemplateRef<any>;
 
   setOnState(on: boolean) {
